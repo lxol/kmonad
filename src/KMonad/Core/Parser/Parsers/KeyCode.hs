@@ -104,6 +104,7 @@ specialNames = concatMap (\(k, as) -> map (,k) as) $
   , (KeyBackspace,      ["bks", "bspc"])
   , (KeyCapsLock,       ["caps"])
   , (KeyGrave,          ["grv"])
+  , (KeySysRq,          ["srq"])
   , (Key102nd,          ["102d"])
   ]
 
