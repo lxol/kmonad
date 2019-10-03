@@ -16,7 +16,7 @@ keyboard.
 
 */
 
-INPUT = LINUX_DEVICE L64 /dev/input/event0
+INPUT = LINUX_DEVICE L64 /dev/input/event3
 OUTPUT = UINPUT_SINK
 
 
@@ -30,6 +30,7 @@ characters to some alias.
 
 @num = LT-numpad            // Switching to the numpad layer
 @sym = LT-syms              // Switching to the symbol layer
+@arr = LT-arrows            // Switching to the arrow layer
 @spc = TH 300 spc LT-syms   // Switch to the symbol layer or emit a 'spc'
 @xcp = TH 300 esc lctl      // Escape when tapped, control when held
 
@@ -37,8 +38,8 @@ characters to some alias.
 SRC
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  del
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    ret
-  caps a    s    d    f    g    h    j    k    l    ;    '    \
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft 102d z    x    c    v    b    n    m    ,    .    /    rsft
   lctl      lmet lalt           spc            ralt rctl pgup up   pgdn
                                                          left down rght
@@ -47,13 +48,20 @@ SRC
 // starts in.
 LAYER cole
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  del
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    f    p    g    j    l    u    y    ;    [    ]    ret
-  @xcp a    r    s    t    d    h    n    e    i    o    '    \
-  lsft @num z    x    c    v    b    k    m    ,    .    /    rsft
+  grv  1    2    3    4    5    6    7    8    9    0    -    '    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  @arr a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft 102d z    x    c    v    b    n    m    ,    .    /    rsft
   lctl      lmet lalt           @spc           ralt rctl pgup up   pgdn
                                                          left down rght
-
+LAYER arrows
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  del
+  grv  1    2    3    4    5    6    7    8    9    0    -    '    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  __   a    s    d    f    g    left down up   rght ;    '    ret
+  lsft 102d z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl      lmet lalt           @spc           ralt rctl pgup up   pgdn
+                                                         left down rght
 // Numpad overlay
 LAYER numpad ~ anchor u
                                      _    7    8    9    /
